@@ -20,11 +20,11 @@
           ></v-img> -->
           <v-card-title primary-title>
             <div>
-              <h2 class="headline mb-0">{{petDetail.topic}}-{{petDetail.province}}</h2>
-              <p>{{ petDetail.description}} </p>
-              <h3>Pet Owner:</h3>{{petDetail.name}}
-               <h4>Phone:</h4> {{petDetail.tel}}
-               <p>line: {{petDetail.email}}</p>
+              <h2 class="headline mb-0">{{petdetail.topic}}-{{petdetail.province}}</h2>
+              <p>{{ petdetail.description}} </p>
+              <h3>Pet Owner:</h3>{{petdetail.name}}
+               <h4>Phone:</h4> {{petdetail.tel}}
+               <p>line: {{petdetail.email}}</p>
             </div>
           </v-card-title>
           <v-card-actions>
@@ -40,20 +40,21 @@
 <script>
 import axios from 'axios'
 export default {
-  props: ['id'],
+  props: ['petid'],
   data () {
     return {
-      petDetail: '',
+      petdetail: '',
       loading: true,
     }
   },
   mounted () {
-      console.log(this.id)
+      console.log(this.petid)
     axios
-      .get('http://127.0.0.1:5000/lost-found-pets/post-id/'+ this.id)
+      .get('http://127.0.0.1:5000/lost-found-pets/post-id/'+ this.petid)
       .then(response => {
-        this.petDetail = response.data
+        this.petdetail = response.data
         this.loading = false
+        console.log(this.petdetail)
       }).catch(error => {
         console.log(error);
       });

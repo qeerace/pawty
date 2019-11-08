@@ -2,10 +2,11 @@ import Vue from "vue";
 import firebase from "firebase";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
+// import Detail from "../views/Detail.vue";
 
 Vue.use(VueRouter);
 
-const routes = [
+export const routes = [
   {
     path: "/",
     name: "home",
@@ -20,12 +21,13 @@ const routes = [
     component: () => import(/* webpackChunkName: "post" */ "../views/Post.vue")
   },
   {
-    path: "/pet-detail/:id",
+    path: "/pet-detail/:petid",
     name: "detail",
     props: true,
     // eslint-disable-next-line no-undef
     component: () =>
       import(/* webpackChunkName: "post" */ "../views/Detail.vue")
+    // component: Detail
   }
 ];
 

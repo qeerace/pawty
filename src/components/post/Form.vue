@@ -159,7 +159,7 @@
                             <v-text-field
                               v-model="form.missing_found_date"
                               label="Date"
-                              prepend-icon="mdi-enent"
+                              prepend-icon="mdi-calendar-range"
                               readonly
                               v-on="on"
                               color="yellow darken-3"
